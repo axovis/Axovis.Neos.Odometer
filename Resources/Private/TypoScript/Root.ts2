@@ -1,0 +1,34 @@
+include: NodeTypes/*
+
+page {
+	head{
+		stylesheets.odometer = TYPO3.TypoScript:Template {
+			templatePath = 'resource://Axovis.Neos.Odometer/Private/Templates/NodeTypes/Odometer.html'
+			sectionName = 'stylesheets'
+		}
+	}
+
+	body {
+		javascripts {
+			/**
+			* Right now it's not possible to send js plugin settings into different section
+			* Therefore we add the neccessary settings as data attributes and collect them again in our init script
+			* This concept has also the benefit that it will work out of the box, but you can override the inclusion
+			* and use grump/gulp tasks to concate and minify js/css files
+			*/
+
+			odometerPlugin = TYPO3.TypoScript:Template {
+				templatePath = 'resource://Axovis.Neos.Odometer/Private/Templates/NodeTypes/Odometer.html'
+				sectionName = 'bodyJavascriptPlugin'
+			}
+			odometerPlugin.@position = 'after site'
+
+			odometerInit = TYPO3.TypoScript:Template {
+				templatePath = 'resource://Axovis.Neos.Odometer/Private/Templates/NodeTypes/Odometer.html'
+				sectionName = 'bodyJavaScriptInit'
+				odoJsonSettings = ${odoJsonSettings}
+			}
+			odometerInit.@position = 'after odometerPlugin'
+		}
+	}
+}

@@ -1,0 +1,198 @@
+#
+# Odometer - animate numbers
+#
+
+'Axovis.Neos.Odometer:Odometer':
+  superTypes:
+    'TYPO3.Neos:Content': true
+  ui:
+    label: Odometer
+    group: general
+    icon: icon-rocket
+    position: 100
+    inlineEditable: true
+    inspector:
+      groups:
+        number:
+          label: Number
+        icon:
+          label: 'Icon Settings'
+        global:
+          label: 'Global Settings'
+  properties:
+    startValue:
+      type: string
+      defaultValue: 4321
+      ui:
+        label: 'Start Value'
+        inspector:
+          group: number
+    stopValue:
+      type: string
+      defaultValue: 7890
+      ui:
+        label: 'Stop Value'
+        inspector:
+          group: number
+    showIcon:
+      type: boolean
+      defaultValue: true
+      ui:
+        label: 'Add Icon'
+        inspector:
+          group: icon
+    icon:
+      type: string
+      defaultValue: fa-coffee
+      ui:
+        label: Icon
+        inspector:
+          group: icon
+    iconPosition:
+      type: string
+      defaultValue: top
+      ui:
+        label: 'Icon Position'
+        inspector:
+          group: icon
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Icon Position'
+            values:
+              left:
+                label: Left
+              right:
+                label: Right
+              top:
+                label: Top
+              bottom:
+                label: Bottom
+    auto:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: 'Auto start odometer on load'
+        inspector:
+          group: global
+    format:
+      type: string
+      defaultValue: d
+      ui:
+        label: 'How digit groups are formatted'
+        inspector:
+          group: global
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Format'
+            values:
+              'd':
+                label: '123456'
+              '( ddd)':
+                label: '123 456'
+              '( ddd),dd':
+                label: '123 456,78'
+              '(.ddd)':
+                label: '123.456'
+              '(.ddd),dd':
+                label: '123.456,78'
+              '(,ddd)':
+                label: '123,456'
+              '(,ddd).dd':
+                label: '123,456.78'
+    theme:
+      type: string
+      defaultValue: default
+      ui:
+        label: 'Specify the theme'
+        inspector:
+          group: global
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Format'
+            values:
+              default:
+                label: default
+              minimal:
+                label: minimal
+              car:
+                label: car
+              digital:
+                label: digital
+              plaza:
+                label: plaza
+              slot-machine:
+                label: 'slot machine'
+              train-station:
+                label: 'train station'
+              custom:
+                label: custom
+              none:
+                label: none
+    duration:
+      type: integer
+      defaultValue: 2000
+      ui:
+        label: 'Animation duration'
+        inspector:
+          group: global
+    animation:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: 'Simpler animation increments value'
+        inspector:
+          group: global
+    showDescription:
+      type: boolean
+      defaultValue: true
+      ui:
+        label: 'Show description text'
+        inspector:
+          group: global
+    descriptionPosition:
+      type: string
+      defaultValue: bottom
+      ui:
+        label: 'Description Position'
+        inspector:
+          group: global
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Icon Position'
+            values:
+              left:
+                label: Left
+              right:
+                label: Right
+              top:
+                label: Top
+              bottom:
+                label: Bottom
+    description:
+      type: string
+      defaultValue: 'Add your text here'
+      ui:
+        label: Text
+        inlineEditable: true
+        aloha:
+          placeholder: '<p>Enter text here</p>'
+          format:
+            strong: true
+            b: false
+            em: true
+            i: false
+            u: true
+            sub: true
+            sup: true
+            p: true
+            link:
+              a: true
+            list: false
+            alignment:
+              left: true
+              center: true
+              right: true
+              justify: true
+          formatlesspaste:
+            button: true
+            formatlessPasteOption: true

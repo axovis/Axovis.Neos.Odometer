@@ -1,0 +1,29 @@
+##
+# Adjust "Odometer"
+#
+prototype(Axovis.Neos.Odometer:Odometer) < prototype(TYPO3.Neos:Content){
+	templatePath = 'resource://Axovis.Neos.Odometer/Private/Templates/NodeTypes/Odometer.html'
+	sectionName = 'odometer'
+	node = ${node}
+
+	attributes.class = ${'axovis-odometer icon-position-'+ q(node).property('iconPosition') + value}
+
+	attributes.data-start-value = ${q(node).property('startValue')}
+	attributes.data-stop-value = ${q(node).property('stopValue')}
+	attributes.data-auto = ${q(node).property('auto') ? 'true' : 'false'}
+	attributes.data-selector = ${q(node).property('selector')}
+	attributes.data-format = ${q(node).property('format')}
+	attributes.data-duration = ${q(node).property('duration')}
+	attributes.data-theme = ${q(node).property('theme')}
+	attributes.data-animation = ${q(node).property('animation')? 'count' : ''}
+
+	showIcon = ${q(node).property('showIcon')}
+	icon = ${q(node).property('icon') ? q(node).property('icon') : 'fa-rocket'}
+	iconPosition = ${q(node).property('iconPosition')}
+
+	startValue = ${q(node).property('startValue')}
+
+	showDescription = ${q(node).property('showDescription')}
+	descriptionPosition = ${q(node).property('descriptionPosition')}
+	description = ${q(node).property('description')}
+}
